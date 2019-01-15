@@ -543,9 +543,11 @@ void test()
     } b;
 
     const B* pB{&b};
-    gsl::not_null<A*> pA{&b};
+    //gsl::not_null<A*> pA1{&b}; // does not compile
+    gsl::not_null<const A*> pA2{&b}; // compiles
 
-    CHECK(pA == pB);
+    //CHECK(pA1 == pB);
+    CHECK(pA2 == pB);
 }
 
 static_assert(std::is_nothrow_move_constructible<not_null<void*>>::value,
