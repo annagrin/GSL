@@ -532,5 +532,21 @@ TEST_CASE("TestMakeNotNull")
 #endif
 }
 
+
+void test()
+{
+    struct A
+    {
+    };
+    struct B : public A
+    {
+    } b;
+
+    const B* pB{&b};
+    gsl::not_null<A*> pA{&b};
+
+    CHECK(pA == pB);
+}
+
 static_assert(std::is_nothrow_move_constructible<not_null<void*>>::value,
               "not_null must be no-throw move constructible");
