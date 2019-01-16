@@ -87,7 +87,7 @@ before_build:
         } else if ("$env:APPVEYOR_BUILD_WORKER_IMAGE" -eq "Visual Studio 2017") {
           $Generator = 'Visual Studio 15 2017'
         } else {
-          $Generator = 'Visual Studio 15 2019'
+          $Generator = 'Visual Studio 17 2019'
         }
         if ("$env:PLATFORM" -eq "x86") { 
             $Architecture = "Win32"
